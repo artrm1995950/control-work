@@ -1,0 +1,63 @@
+/* Основные стили */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form, .habit-filter {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+details {
+    margin-bottom: 15px;
+}
+
+.habit-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.habit-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.habit-item .title {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.habit-item .description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.habit-item .status {
+    font-size: 0.9em;
+    color: #007bff;
+}

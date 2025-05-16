@@ -9,5 +9,7 @@ const container = document.querySelector('.container');
 const model = new HabitModel(initialHabits);
 
 new HabitFormPresenter(container, model, STATUSES).init();
-new FilterPresenter(container, model, STATUSES).init();
-new HabitListPresenter(container, model).init();
+
+const listPresenter = new HabitListPresenter(container, model, STATUSES);
+new FilterPresenter(container, listPresenter, STATUSES).init();
+listPresenter.init();

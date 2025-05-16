@@ -4,22 +4,22 @@ import { generateId } from '../utils.js';
 
 export default class HabitFormPresenter {
   constructor(container, model, statuses) {
-    this._container = container;
-    this._model = model;
-    this._view = new HabitFormComponent(statuses);
+    this.container = container;
+    this.model = model;
+    this.view = new HabitFormComponent(statuses);
 
-    this._view.getElement().addEventListener('submit', this._onSubmit.bind(this));
+    this.view.getElement().addEventListener('submit', this.onSubmit.bind(this));
   }
 
   init() {
-    render(this._container, this._view, 'afterbegin');
+    render(this.container, this.view, 'afterbegin');
   }
 
-  _onSubmit(evt) {
+  onSubmit(evt) {
     evt.preventDefault();
-    const form = this._view.getElement();
+    const form = this.view.getElement();
     const data = Object.fromEntries(new FormData(form).entries());
-    this._model.addHabit({
+    this.model.addHabit({
       id: generateId(),
       name: data.name,
       description: data.description,

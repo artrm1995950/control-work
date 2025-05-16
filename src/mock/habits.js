@@ -2,7 +2,7 @@ import { generateId } from '../utils.js';
 import { STATUSES } from '../const.js';
 
 export const initialHabits = [
-  { id: generateId(), name: 'Утренняя зарядка', description: '10 минут упражнений', status: 'active' },
-  { id: generateId(), name: 'Чтение книги',      description: '20 страниц',            status: 'completed' },
-  { id: generateId(), name: 'Медитация',        description: '5 минут',               status: 'active' },
+  { id: generateId(), name: 'Бегать', description: 'Бег 4 километра под вечер.Полезная привычка', status: 'completed' },
+  { id: generateId(), name: 'Работать',      description: '8 часов сидеть за стулом. Звонить аналитикам.Имитировать работу. Вредная привычка',            status: 'active' },
+  { id: generateId(), name: 'Думать',        description: 'Непривычно много думал',               status: 'completed' },
 ];

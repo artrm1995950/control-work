@@ -1,34 +1,37 @@
 export default class HabitModel {
   constructor(habits = []) {
-    this._habits = habits;
-    this._observers = [];
-  }
-
-  get habits() {
-    return this._habits;
+    this.habits = habits;
+    this.observers = [];
   }
 
   addObserver(fn) {
-    this._observers.push(fn);
+    this.observers.push(fn);
   }
 
-  _notify(updateType, data) {
-    this._observers.forEach(obs => obs(updateType, data));
+  notify(updateType, data) {
+    this.observers.forEach(obs => obs(updateType, data));
   }
 
   addHabit(habit) {
-    this._habits = [habit, ...this._habits];
-    this._notify('ADD', habit);
+    this.habits = [habit, ...this.habits];
+    this.notify('ADD', habit);
   }
 
   deleteHabit(id) {
-    this._habits = this._habits.filter(h => h.id !== id);
-    this._notify('DELETE', id);
+    this.habits = this.habits.filter(h => h.id !== id);
+    this.notify('DELETE', id);
+  }
+
+  updateHabit(update) {
+    this.habits = this.habits.map(h =>
+      h.id === update.id ? Object.assign({}, h, update) : h
+    );
+    this.notify('UPDATE', update);
   }
 
   filterHabits(status) {
     return status === 'all'
-      ? this._habits
-      : this._habits.filter(h => h.status === status);
+      ? this.habits
+      : this.habits.filter(h => h.status === status);
   }
 }
